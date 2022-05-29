@@ -10,11 +10,11 @@ from dotenv import load_dotenv
 load_dotenv('config.env')
 
 try:
-    BASE_URL = os.environ.get('BASE_URL_OF_BOT', True)
-    if len(BASE_URL) == 'true':
-        BASE_URL = True
+    BASE_URL = os.environ.get('BASE_URL_OF_BOT', None)
+    if len(BASE_URL) == 0:
+        BASE_URL = None
 except KeyError:
-    BASE_URL = True
+    BASE_URL = None
 
 try:
     IS_VPS = os.environ.get('IS_VPS', 'False')
@@ -27,5 +27,5 @@ except KeyError:
 
 if not IS_VPS and BASE_URL is not None:
     while True:
-        time.sleep(2)
+        time.sleep(1000)
         status = requests.get(BASE_URL).status_code
