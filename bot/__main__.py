@@ -35,8 +35,8 @@ def stats(update, context):
     disk = psutil.disk_usage('/').percent
     stats = f'<b>🚀 Bot Uptime : {currentTime}</b>\n' \
             f'<b>💽 Total Disk Space : {total}</b>\n' \
-            f'<b>✅ Used : {used}</b> ' \
-            f'<b>♻️ Free : {free}</b>\n\n' \
+            f'<b>✅ Used : {used}</b>\n ' \
+            f'<b>📮 Free : {free}</b>\n\n' \
             f'<b>📤 Upload : {sent}</b>\n' \
             f'<b>📥 Download : {recv}</b>\n\n' \
             f'<b>🖥️ CPU : {cpuUsage}%</b> ' \
