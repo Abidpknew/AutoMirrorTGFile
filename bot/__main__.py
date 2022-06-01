@@ -47,8 +47,8 @@ def stats(update, context):
 
 def start(update, context):
     
-    start_string = f'''**Hey I'm Alive 😍\nThis bot can mirror all your links to Google Drive!
-Type /{BotCommands.HelpCommand} to get a list of available commands**
+    start_string = f'''<b>Hey I'm Alive 😍\nThis bot can mirror all your links to Google Drive!
+Type /{BotCommands.HelpCommand} to get a list of available commands</b>**
 '''
     buttons = button_build.ButtonMaker()
     buttons.buildbutton("Owner", "https://t.me/mhd_thanzeer")
