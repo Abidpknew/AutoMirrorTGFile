@@ -97,10 +97,10 @@ def get_progress_bar_string(status):
     p = min(max(p, 0), 100)
     cFull = p // 8
     cPart = p % 8 - 1
-    p_str = '☻' * cFull
+    p_str = '▰' * cFull
     if cPart >= 0:
         p_str += PROGRESS_INCOMPLETE[cPart]
-    p_str += '☺' * (PROGRESS_MAX_SIZE - cFull)
+    p_str += '▱' * (PROGRESS_MAX_SIZE - cFull)
     p_str = f"[{p_str}]"
     return p_str
 
@@ -120,9 +120,9 @@ def get_readable_message():
             INDEX += 1
             if INDEX > COUNT:
                 msg += f"<b>📂 Filename : {download.name()}</b>"
-                msg += f"\n<b>⌛ Status : {download.status()}</b>"
+                msg += f"\n<b>⌛ Status : {download.status()}</b>\n"
                 if download.status() != MirrorStatus.STATUS_ARCHIVING and download.status() != MirrorStatus.STATUS_EXTRACTING:
-                    msg += f"\n<b>{get_progress_bar_string(download)} {download.progress()}</b>"
+                    msg += f"\n<b>{get_progress_bar_string(download)} {download.progress()}</b>\n"
                     if download.status() == MirrorStatus.STATUS_CLONING:
                         msg += f"\n<b>✅ Cloned : {get_readable_file_size(download.processed_bytes())}</b> of <b>{download.size()}</b>"
                     elif download.status() == MirrorStatus.STATUS_UPLOADING:
@@ -143,7 +143,7 @@ def get_readable_message():
                     except:
                         pass
                     msg += f"\n<b>❌ Cancel 👉 :</b> <code>/{BotCommands.CancelMirror} {download.gid()}</code>"
-                msg += "\n\n"
+                msg += "\n<b>📬 Ownerd By : @mhd_thanzeer</b>\n\n"
                 if STATUS_LIMIT is not None:
                     if INDEX >= COUNT + STATUS_LIMIT:
                         break
