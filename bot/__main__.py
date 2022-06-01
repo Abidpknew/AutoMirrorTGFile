@@ -62,7 +62,7 @@ Type /{BotCommands.HelpCommand} to get a list of available commands</b>
         else :
             sendMarkup(start_string, context.bot, update, reply_markup)
     else :
-        sendMarkup(f"Oops! not a Authorized user.\nPlease deploy your own <b>slam-tg-mirror-bot</b>.", context.bot, update, reply_markup)
+        sendMarkup(f"Oops! not a Authorized user.\nPlease deploy your own <b>For Support : @mhd_thanzeer</b>.", context.bot, update, reply_markup)
 
 def fileshandler(update,context ):
         print('file')
