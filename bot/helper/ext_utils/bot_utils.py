@@ -119,27 +119,27 @@ def get_readable_message():
         for download in list(download_dict.values()):
             INDEX += 1
             if INDEX > COUNT:
-                msg += f"<b>📂 Filename :</b> <code>{download.name()}</code>"
-                msg += f"\n<b>⌛ Status :</b> <i>{download.status()}</i>"
+                msg += f"<b>📂 Filename : {download.name()}</b>"
+                msg += f"\n<b>⌛ Status : {download.status()}</b>"
                 if download.status() != MirrorStatus.STATUS_ARCHIVING and download.status() != MirrorStatus.STATUS_EXTRACTING:
-                    msg += f"\n<b>📊 Progress : {get_progress_bar_string(download)} {download.progress()}</b>"
+                    msg += f"\n<b>{get_progress_bar_string(download)} {download.progress()}</b>"
                     if download.status() == MirrorStatus.STATUS_CLONING:
-                        msg += f"\n<b>✅ Cloned :</b> <code>{get_readable_file_size(download.processed_bytes())}</code> of <code>{download.size()}</code>"
+                        msg += f"\n<b>✅ Cloned : {get_readable_file_size(download.processed_bytes())}</b> of <b>{download.size()}</b>"
                     elif download.status() == MirrorStatus.STATUS_UPLOADING:
-                        msg += f"\n<b>✅ Uploaded :</b> <code>{get_readable_file_size(download.processed_bytes())}</code> of <code>{download.size()}</code>"
+                        msg += f"\n<b>✅ Uploaded : {get_readable_file_size(download.processed_bytes())}</b> of <b>{download.size()}</b>"
                     else:
-                        msg += f"\n<b>✅ Downloaded :</b> <code>{get_readable_file_size(download.processed_bytes())}</code> of <code>{download.size()}</code>"
-                    msg += f"\n<b>🚀 Speed :</b> <code>{download.speed()}</code>" \
-                            f", <b>⏳ ETA :</b> <code>{download.eta()}</code> "
+                        msg += f"\n<b>✅ Downloaded : {get_readable_file_size(download.processed_bytes())}</b> of <b>{download.size()}</b>"
+                    msg += f"\n<b>🚀 Speed : {download.speed()}</b>" \
+                            f", <b>⏳ ETA : {download.eta()}</b> "
                     # if hasattr(download, 'is_torrent'):
                     try:
-                        msg += f"\n<b>✏️ Seeders :</b> <code>{download.aria_download().num_seeders}</code>" \
-                            f" | <b>🍒 Peers :</b> <code>{download.aria_download().connections}</code>"
+                        msg += f"\n<b>✏️ Seeders : {download.aria_download().num_seeders}</b>" \
+                            f" | <b>🍒 Peers : {download.aria_download().connections}</b>"
                     except:
                         pass
                     try:
-                        msg += f"\n<b>✏️ Seeders :</b> <code>{download.torrent_info().num_seeds}</code>" \
-                            f" | <b>👨‍🔬 Leechers :</b> <code>{download.torrent_info().num_leechs}</code>"
+                        msg += f"\n<b>✏️ Seeders : {download.torrent_info().num_seeds}</b>" \
+                            f" | <b>👨‍🔬 Leechers : {download.torrent_info().num_leechs}</b>"
                     except:
                         pass
                     msg += f"\n<b>❌ Cancel 👉 :</b> <code>/{BotCommands.CancelMirror} {download.gid()}</code>"
@@ -151,7 +151,7 @@ def get_readable_message():
             if INDEX > COUNT + STATUS_LIMIT:
                 return None, None
             if dick_no > STATUS_LIMIT:
-                msg += f"Page: <code>{PAGE_NO}/{pages}</code> | <code>Tasks: {dick_no}</code>\n"
+                msg += f"📕 Page : <code>{PAGE_NO}/{pages}</code> | <code>🗑️ Tasks : {dick_no}</code>\n"
                 buttons = button_build.ButtonMaker()
                 buttons.sbutton("Previous", "pre")
                 buttons.sbutton("Next", "nex")
