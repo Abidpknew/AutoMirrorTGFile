@@ -117,8 +117,8 @@ def sendStatusMessage(msg, bot):
     if progress is None:
         progress, buttons = get_readable_message()
     progress += f"<b>🖥️CPU:</b> <code>{psutil.cpu_percent()}%</b>" \
-                f" <b>💾 RAM : {psutil.virtual_memory().percent}%</b>" \
-                f" <b>💽 DISK : {psutil.disk_usage('/').percent}%</b>"
+           f" <b>💾 RAM : {psutil.virtual_memory().percent}%</b>" \
+           f" <b>💽 DISK : {psutil.disk_usage('/').percent}%</b>"
     with download_dict_lock:
         dlspeed_bytes = 0
         uldl_bytes = 0
@@ -136,7 +136,7 @@ def sendStatusMessage(msg, bot):
                     uldl_bytes += float(speedy.split('M')[0]) * 1048576
         dlspeed = get_readable_file_size(dlspeed_bytes)
         ulspeed = get_readable_file_size(uldl_bytes)
-        progress += f"\n<b>📮 FREE :</b> <code>{free}</code> | <b>⌚ UPTIME :</b> <code>{currentTime}</code>\n<b>📥 Download Speed : {dlspeed}/s\n<b>📤Upload Speed : {ulspeed}/s\n"
+        progress += f"\n<b>📮 FREE : {free}</b> | <b>⌚ UPTIME : {currentTime}</b>\n<b>📥 Download Speed : {dlspeed}/s</b>\n<b>📤Upload Speed : {ulspeed}/s</b>\n"
     with status_reply_dict_lock:
         if msg.message.chat.id in list(status_reply_dict.keys()):
             try:
