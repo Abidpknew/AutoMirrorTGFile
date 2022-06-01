@@ -47,8 +47,8 @@ def stats(update, context):
 
 def start(update, context):
     
-    start_string = f'''
-**Hey I'm Alive 😍\nSince : {uptime}\nThis bot can mirror all your links to Google Drive!
+    time = get_readable_time((time.time() - botStartTime))
+    start_string = f'''**Hey I'm Alive 😍\nSince : {time}\nThis bot can mirror all your links to Google Drive!
 Type /{BotCommands.HelpCommand} to get a list of available commands**
 '''
     buttons = button_build.ButtonMaker()
