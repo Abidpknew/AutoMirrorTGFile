@@ -33,22 +33,22 @@ def stats(update, context):
     cpuUsage = psutil.cpu_percent(interval=0.5)
     memory = psutil.virtual_memory().percent
     disk = psutil.disk_usage('/').percent
-    stats = f'<b>Bot Uptime:</b> <code>{currentTime}</code>\n' \
-            f'<b>Total Disk Space:</b> <code>{total}</code>\n' \
-            f'<b>Used:</b> <code>{used}</code> ' \
-            f'<b>Free:</b> <code>{free}</code>\n\n' \
-            f'<b>Upload:</b> <code>{sent}</code>\n' \
-            f'<b>Download:</b> <code>{recv}</code>\n\n' \
-            f'<b>CPU:</b> <code>{cpuUsage}%</code> ' \
-            f'<b>RAM:</b> <code>{memory}%</code> ' \
-            f'<b>DISK:</b> <code>{disk}%</code>'
+    stats = f'<b>🚀 Bot Uptime : {currentTime}</b>\n' \
+            f'<b>💽 Total Disk Space : {total}</b>\n' \
+            f'<b>✅ Used : {used}</b> ' \
+            f'<b>♻️ Free : {free}</b>\n\n' \
+            f'<b>📤 Upload : {sent}</b>\n' \
+            f'<b>📥 Download : {recv}</b>\n\n' \
+            f'<b>🖥️ CPU : {cpuUsage}%</b> ' \
+            f'<b>💾 RAM : {memory}%</b> ' \
+            f'<b>💽 DISK : {disk}%</b>'
     sendMessage(stats, context.bot, update)
 
 
 def start(update, context):
     
     start_string = f'''<b>Hey I'm Alive 😍\nThis bot can mirror all your links to Google Drive!
-Type /{BotCommands.HelpCommand} to get a list of available commands</b>**
+Type /{BotCommands.HelpCommand} to get a list of available commands</b>
 '''
     buttons = button_build.ButtonMaker()
     buttons.buildbutton("Owner", "https://t.me/mhd_thanzeer")
