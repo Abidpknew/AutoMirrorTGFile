@@ -117,7 +117,7 @@ class GoogleDriveHelper:
                                      resumable=False)
         file_metadata = {
             'name': file_name,
-            'description': 'Uploaded using Slam Tg Mirror Bot',
+            'description': 'Uploaded using Thanzeer Mirror Bot',
             'mimeType': mime_type,
         }
         if parent_id is not None:
@@ -171,7 +171,7 @@ class GoogleDriveHelper:
         # File body description
         file_metadata = {
             'name': file_name,
-            'description': 'Uploaded by Slam Tg Mirror Bot',
+            'description': 'Uploaded using Thanzeer Mirror Bot',
             'mimeType': mime_type,
         }
         try:
@@ -643,9 +643,9 @@ class GoogleDriveHelper:
 
             for content in self.telegraph_content :
                 self.path.append(Telegraph(access_token=telegraph_token).create_page(
-                                                        title = 'Slam Tg Mirror Bot Search',
-                                                        author_name='Slam Tg Mirror Bot',
-                                                        author_url='https://github.com/breakdowns/slam-tg-mirror-bot',
+                                                        title = 'MHD THANZEER - PAGE',
+                                                        author_name='@mhd_thanzeer',
+                                                        author_url='https://t.me/mhd_thanzeer',
                                                         html_content=content
                                                         )['path'])
 
