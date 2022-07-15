@@ -129,7 +129,7 @@ def get_readable_message():
                         msg += f"\n<b>📊 Progress : {get_readable_file_size(download.processed_bytes())}</b> of <b>{download.size()}</b>"
                     else:
                         msg += f"\n<b>📊 Progress : {get_readable_file_size(download.processed_bytes())}</b> of <b>{download.size()}</b>"
-                    msg += f"\n<b>🚀 Speed : {download.speed()}</b>"\n
+                    msg += f"\n<b>🚀 Speed : {download.speed()}</b>" \
                             f", <b>⏳ ETA : {download.eta()}</b> "
                     # if hasattr(download, 'is_torrent'):
                     try:
