@@ -143,7 +143,7 @@ def get_readable_message():
                     except:
                         pass
                     msg += f"\n<b>❌ Cancel 👉 :</b> <code>/{BotCommands.CancelMirror} {download.gid()}</code>\n"
-                msg += "\n<b>📬 Ownerd By : #WhitE_DeviL09</b>\n\n"
+                msg += "\n<b>🎭 𝐎𝐖𝐍𝐄𝐑 : #𝗪𝗵𝗶𝘁𝗘_𝗗𝗲𝘃𝗶𝗟𝟬𝟵</b>\n\n"
                 if STATUS_LIMIT is not None:
                     if INDEX >= COUNT + STATUS_LIMIT:
                         break
