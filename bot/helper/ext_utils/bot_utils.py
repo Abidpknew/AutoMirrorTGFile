@@ -97,7 +97,7 @@ def get_progress_bar_string(status):
     p = min(max(p, 0), 100)
     cFull = p // 8
     cPart = p % 8 - 1
-    p_str = '●' * cFull
+    p_str = '█' * cFull
     if cPart >= 0:
         p_str += PROGRESS_INCOMPLETE[cPart]
     p_str += '○' * (PROGRESS_MAX_SIZE - cFull)
@@ -120,9 +120,9 @@ def get_readable_message():
             INDEX += 1
             if INDEX > COUNT:
                 msg += f"<b>📂 Filename : {download.name()}</b>"
-                msg += f"\n\n<b>⌛ Status : {download.status()}</b>\n"
+                msg += f"\n\n<b>⌛ Status : <i>{download.status()}</i></b>"
                 if download.status() != MirrorStatus.STATUS_ARCHIVING and download.status() != MirrorStatus.STATUS_EXTRACTING:
-                    msg += f"\n<b>{get_progress_bar_string(download)} {download.progress()}</b>\n"
+                    msg += f"\n<b>{get_progress_bar_string(download)} {download.progress()}</b>"
                     if download.status() == MirrorStatus.STATUS_CLONING:
                         msg += f"\n<b>📊 Progress : {get_readable_file_size(download.processed_bytes())}</b> of <b>{download.size()}</b>"
                     elif download.status() == MirrorStatus.STATUS_UPLOADING:
