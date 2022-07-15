@@ -97,10 +97,10 @@ def get_progress_bar_string(status):
     p = min(max(p, 0), 100)
     cFull = p // 8
     cPart = p % 8 - 1
-    p_str = '█' * cFull
+    p_str = '●' * cFull
     if cPart >= 0:
         p_str += PROGRESS_INCOMPLETE[cPart]
-    p_str += '░' * (PROGRESS_MAX_SIZE - cFull)
+    p_str += '○' * (PROGRESS_MAX_SIZE - cFull)
     p_str = f"[{p_str}]"
     return p_str
 
@@ -120,30 +120,30 @@ def get_readable_message():
             INDEX += 1
             if INDEX > COUNT:
                 msg += f"<b>📂 Filename : {download.name()}</b>"
-                msg += f"\n<b>⌛ Status : {download.status()}</b>\n"
+                msg += f"\n\n<b>⌛ Status : {download.status()}</b>\n"
                 if download.status() != MirrorStatus.STATUS_ARCHIVING and download.status() != MirrorStatus.STATUS_EXTRACTING:
-                    msg += f"\n<b>📊 Progress : {get_progress_bar_string(download)} {download.progress()}</b>\n"
+                    msg += f"\n<b>{get_progress_bar_string(download)} {download.progress()}</b>\n"
                     if download.status() == MirrorStatus.STATUS_CLONING:
-                        msg += f"\n<b>✅ Cloned : {get_readable_file_size(download.processed_bytes())}</b> of <b>{download.size()}</b>"
+                        msg += f"\n<b>📊 Progress : {get_readable_file_size(download.processed_bytes())}</b> of <b>{download.size()}</b>"
                     elif download.status() == MirrorStatus.STATUS_UPLOADING:
-                        msg += f"\n<b>✅ Uploaded : {get_readable_file_size(download.processed_bytes())}</b> of <b>{download.size()}</b>"
+                        msg += f"\n<b>📊 Progress : {get_readable_file_size(download.processed_bytes())}</b> of <b>{download.size()}</b>"
                     else:
-                        msg += f"\n<b>✅ Downloaded : {get_readable_file_size(download.processed_bytes())}</b> of <b>{download.size()}</b>"
+                        msg += f"\n<b>📊 Progress : {get_readable_file_size(download.processed_bytes())}</b> of <b>{download.size()}</b>"
                     msg += f"\n<b>🚀 Speed : {download.speed()}</b>" \
                             f", <b>⏳ ETA : {download.eta()}</b> "
                     # if hasattr(download, 'is_torrent'):
                     try:
-                        msg += f"\n<b>✏️ Seeders : {download.aria_download().num_seeders}</b>" \
-                            f" | <b>🍒 Peers : {download.aria_download().connections}</b>"
+                        msg += f"\n<b>🌱 Seeders : {download.aria_download().num_seeders}</b>" \
+                            f" | <b>⚓ Peers : {download.aria_download().connections}</b>"
                     except:
                         pass
                     try:
-                        msg += f"\n<b>✏️ Seeders : {download.torrent_info().num_seeds}</b>" \
-                            f" | <b>👨‍🔬 Leechers : {download.torrent_info().num_leechs}</b>"
+                        msg += f"\n<b>🌱 Seeders : {download.torrent_info().num_seeds}</b>" \
+                            f" | <b>⚓ Leechers : {download.torrent_info().num_leechs}</b>"
                     except:
                         pass
                     msg += f"\n<b>❌ Cancel 👉 :</b> <code>/{BotCommands.CancelMirror} {download.gid()}</code>\n"
-                msg += "\n<b>📬 Ownerd By : @mhd_thanzeer</b>\n\n"
+                msg += "\n<b>📬 Ownerd By : #WhitE_DeviL09</b>\n\n"
                 if STATUS_LIMIT is not None:
                     if INDEX >= COUNT + STATUS_LIMIT:
                         break
@@ -153,8 +153,8 @@ def get_readable_message():
             if dick_no > STATUS_LIMIT:
                 msg += f"📕 Page : <code>{PAGE_NO}/{pages}</code> | <code>🗑️ Tasks : {dick_no}</code>\n"
                 buttons = button_build.ButtonMaker()
-                buttons.sbutton("Previous", "pre")
-                buttons.sbutton("Next", "nex")
+                buttons.sbutton("⏪ Previous", "pre")
+                buttons.sbutton("Next ⏩", "nex")
                 button = InlineKeyboardMarkup(buttons.build_menu(2))
                 return msg, button
         return msg, ""
