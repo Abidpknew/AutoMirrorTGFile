@@ -31,9 +31,9 @@ class AriaDownloadHelper(DownloadHelper):
                     gdrive = GoogleDriveHelper(None)
                     smsg, button = gdrive.drive_list(sname)
                 if smsg:
-                    dl.getListener().onDownloadError(f'File/Folder already available in Drive.\n\n')
+                    dl.getListener().onDownloadError(f'<b>📂 File/Folder already available in Drive 🤒</b>\n\n\n')
                     aria2.remove([download], force=True)
-                    sendMarkup("Here are the search results:", dl.getListener().bot, dl.getListener().update, button)
+                    sendMarkup("<b>🔥 Here are the search results 👇</b>", dl.getListener().bot, dl.getListener().update, button)
                     return
             if (TORRENT_DIRECT_LIMIT is not None or TAR_UNZIP_LIMIT is not None) and dl is not None:
                 limit = None
