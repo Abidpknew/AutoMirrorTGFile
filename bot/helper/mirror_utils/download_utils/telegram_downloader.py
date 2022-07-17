@@ -110,7 +110,7 @@ class TelegramDownloadHelper(DownloadHelper):
                         gd = GoogleDriveHelper()
                         smsg, button = gd.drive_list(name)
                     if smsg:
-                        sendMarkup("File/Folder is already available in Drive.\nHere are the search results:", self.__listener.bot, self.__listener.update, button)
+                        sendMarkup("<b>📂 File/Folder is already available in Drive 🤒\n\n🔥 Here are the search results 👇</b>", self.__listener.bot, self.__listener.update, button)
                         return
                 sendStatusMessage(self.__listener.update, self.__listener.bot)
                 self.__onDownloadStart(name, media.file_size, media.file_id)
@@ -167,13 +167,13 @@ class TelegramDownloadHelper(DownloadHelper):
                         gd = GoogleDriveHelper()
                         smsg, button = gd.drive_list(name)
                     if smsg:
-                        sendMarkup("File/Folder is already available in Drive.\nHere are the search results:", self.__listener.bot, self.__listener.update, button)
+                        sendMarkup("<b>📂 File/Folder is already available in Drive 🤒\n\n🔥 Here are the search results 👇</b>", self.__listener.bot, self.__listener.update, button)
                         return
                 sendStatusMessage(self.__listener.update, self.__listener.bot)
                 self.__onDownloadStart(name, media.file_size, media.file_id)
                 LOGGER.info(f'Downloading Telegram file with id: {media.file_id}')
                 threading.Thread(target=self.__download, args=(_message, path)).start()
             else:
-                self.__onDownloadError('File already being downloaded!')
+                self.__onDownloadError('<b>File already being downloaded!</b>')
         else:
             self.__onDownloadError('No document in the replied message')
