@@ -119,31 +119,31 @@ def get_readable_message():
         for download in list(download_dict.values()):
             INDEX += 1
             if INDEX > COUNT:
-                msg += f"<b>📂 Filename : {download.name()}</b>"
-                msg += f"\n\n<b>⌛ Status : <i>{download.status()}</i></b>"
+                msg += f"<b>⌈➳ 📂 Filename : {download.name()}</b>"
+                msg += f"\n\n<b>⌈➳ ⌛ Status : <i>{download.status()}</i></b>"
                 if download.status() != MirrorStatus.STATUS_ARCHIVING and download.status() != MirrorStatus.STATUS_EXTRACTING:
-                    msg += f"\n<b>💠 {get_progress_bar_string(download)} {download.progress()}</b>"
+                    msg += f"\n<b>⌈➳🔁 {get_progress_bar_string(download)} {download.progress()}</b>"
                     if download.status() == MirrorStatus.STATUS_CLONING:
-                        msg += f"\n<b>📊 Progress : {get_readable_file_size(download.processed_bytes())}</b> of <b>{download.size()}</b>"
+                        msg += f"\n<b>⌈➳ 📊 Progress : {get_readable_file_size(download.processed_bytes())}</b> of <b>{download.size()}</b>"
                     elif download.status() == MirrorStatus.STATUS_UPLOADING:
-                        msg += f"\n<b>📊 Progress : {get_readable_file_size(download.processed_bytes())}</b> of <b>{download.size()}</b>"
+                        msg += f"\n<b>⌈➳ 📊 Progress : {get_readable_file_size(download.processed_bytes())}</b> of <b>{download.size()}</b>"
                     else:
-                        msg += f"\n<b>📊 Progress : {get_readable_file_size(download.processed_bytes())}</b> of <b>{download.size()}</b>"
-                    msg += f"\n<b>🚀 Speed : {download.speed()}</b>" \
-                            f", <b>⏳ ETA : {download.eta()}</b> "
+                        msg += f"\n<b>⌈➳ 📊 Progress : {get_readable_file_size(download.processed_bytes())}</b> of <b>{download.size()}</b>"
+                    msg += f"\n<b>⌈➳🚀 Speed : {download.speed()}</b>" \
+                            f", <b>⌈➳⏰ ETA : {download.eta()}</b> "
                     # if hasattr(download, 'is_torrent'):
                     try:
-                        msg += f"\n<b>🌱 Seeders : {download.aria_download().num_seeders}</b>" \
-                            f" | <b>⚓ Peers : {download.aria_download().connections}</b>"
+                        msg += f"\n<b>⌈➳🌱 Seeders : {download.aria_download().num_seeders}</b>" \
+                            f" | <b>⌈➳⚓ Peers : {download.aria_download().connections}</b>"
                     except:
                         pass
                     try:
-                        msg += f"\n<b>🌱 Seeders : {download.torrent_info().num_seeds}</b>" \
-                            f" | <b>⚓ Leechers : {download.torrent_info().num_leechs}</b>"
+                        msg += f"\n<b>⌈➳🌱 Seeders : {download.torrent_info().num_seeds}</b>" \
+                            f" | <b>⌈➳⚓ Leechers : {download.torrent_info().num_leechs}</b>"
                     except:
                         pass
-                    msg += f"\n<b>❌ Cancel 👉 :</b> <code>/{BotCommands.CancelMirror} {download.gid()}</code>\n"
-                msg += "\n<b>🎭 𝐎𝐖𝐍𝐄𝐑 : #𝗪𝗵𝗶𝘁𝗘_𝗗𝗲𝘃𝗶𝗟𝟬𝟵</b>\n\n"
+                    msg += f"\n<b>⌈➳❌ Cancel 👉 :</b> <code>/{BotCommands.CancelMirror} {download.gid()}</code>\n"
+                msg += "\n<b>⌈➳🎭 𝐎𝐖𝐍𝐄𝐑 : #𝗪𝗵𝗶𝘁𝗘_𝗗𝗲𝘃𝗶𝗟𝟬𝟵</b>\n\n"
                 if STATUS_LIMIT is not None:
                     if INDEX >= COUNT + STATUS_LIMIT:
                         break
