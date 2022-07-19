@@ -73,7 +73,7 @@ def update_all_messages():
     msg, buttons = get_readable_message()
     if msg is None:
         return
-    msg += f"<b>🖥️ CPU : {psutil.cpu_percent()}%</b>" \
+    #msg += f"<b>🖥️ CPU : {psutil.cpu_percent()}%</b>" \
            f"<b>💾 RAM : {psutil.virtual_memory().percent}%</b>" \
            f"<b>💽 DISK : {psutil.disk_usage('/').percent}%</b>"
     with download_dict_lock:
@@ -116,7 +116,7 @@ def sendStatusMessage(msg, bot):
     progress, buttons = get_readable_message()
     if progress is None:
         progress, buttons = get_readable_message()
-    progress += f"<b>🖥️CPU : {psutil.cpu_percent()}%</b>" \
+    #progress += f"<b>🖥️CPU : {psutil.cpu_percent()}%</b>" \
            f" <b>💾 RAM : {psutil.virtual_memory().percent}%</b>" \
            f" <b>💽 DISK : {psutil.disk_usage('/').percent}%</b>"
     with download_dict_lock:
