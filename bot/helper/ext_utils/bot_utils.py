@@ -142,7 +142,7 @@ def get_readable_message():
                             f" | <b>⌈➳⚓ Leechers : {download.torrent_info().num_leechs}</b>"
                     except:
                         pass
-                    msg += f"\n<b>⌈➳❌ Cancel 👉 :</b> <code>/{BotCommands.CancelMirror} {download.gid()}</code>\n"
+                    msg += f"\n<b>⌈➳❌ Cancel 👉 :</b> <code>/{BotCommands.CancelMirror} {download.gid()}</code>\n\n"
                 #msg += "<b>⌈➳🗣️ User : {uname}</b>\n\n"
                 if STATUS_LIMIT is not None:
                     if INDEX >= COUNT + STATUS_LIMIT:
