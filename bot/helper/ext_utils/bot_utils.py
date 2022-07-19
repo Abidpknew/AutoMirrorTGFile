@@ -119,16 +119,16 @@ def get_readable_message():
         for download in list(download_dict.values()):
             INDEX += 1
             if INDEX > COUNT:
-                msg += f"<b>⌈➳ 📂 Filename : {download.name()}</b>"
-                msg += f"\n\n<b>⌈➳ ⌛ Status : <i>{download.status()}</i></b>"
+                msg += f"<b>⌈➳📂 Filename : {download.name()}</b>"
+                msg += f"\n\n<b>⌈➳⌛ Status : <i>{download.status()}</i></b>"
                 if download.status() != MirrorStatus.STATUS_ARCHIVING and download.status() != MirrorStatus.STATUS_EXTRACTING:
                     msg += f"\n<b>⌈➳🔁 {get_progress_bar_string(download)} {download.progress()}</b>"
                     if download.status() == MirrorStatus.STATUS_CLONING:
-                        msg += f"\n<b>⌈➳ 📊 Progress : {get_readable_file_size(download.processed_bytes())}</b> of <b>{download.size()}</b>"
+                        msg += f"\n<b>⌈➳📊 Progress : {get_readable_file_size(download.processed_bytes())}</b> of <b>{download.size()}</b>"
                     elif download.status() == MirrorStatus.STATUS_UPLOADING:
-                        msg += f"\n<b>⌈➳ 📊 Progress : {get_readable_file_size(download.processed_bytes())}</b> of <b>{download.size()}</b>"
+                        msg += f"\n<b>⌈➳📊 Progress : {get_readable_file_size(download.processed_bytes())}</b> of <b>{download.size()}</b>"
                     else:
-                        msg += f"\n<b>⌈➳ 📊 Progress : {get_readable_file_size(download.processed_bytes())}</b> of <b>{download.size()}</b>"
+                        msg += f"\n<b>⌈➳📊 Progress : {get_readable_file_size(download.processed_bytes())}</b> of <b>{download.size()}</b>"
                     msg += f"\n<b>⌈➳🚀 Speed : {download.speed()}</b>" \
                             f", <b>⌈➳⏰ ETA : {download.eta()}</b> "
                     # if hasattr(download, 'is_torrent'):
@@ -151,7 +151,7 @@ def get_readable_message():
             if INDEX > COUNT + STATUS_LIMIT:
                 return None, None
             if dick_no > STATUS_LIMIT:
-                msg += f"📕 Page : <code>{PAGE_NO}/{pages}</code> | <code>🗑️ Tasks : {dick_no}</code>\n"
+                msg += f"<b>⌈➳📕 Page : {PAGE_NO}/{pages} | ⌈➳📚 Tasks : {dick_no}</b>\n"
                 buttons = button_build.ButtonMaker()
                 buttons.sbutton("⏪ Previous", "pre")
                 buttons.sbutton("Next ⏩", "nex")
