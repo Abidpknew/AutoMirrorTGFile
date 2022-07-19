@@ -145,13 +145,13 @@ class MirrorListener(listeners.MirrorListeners):
 
     def onUploadComplete(self, link: str, size, files, folders, typ):
         with download_dict_lock:
-            msg = f'<b>📂 Movie Name : {download_dict[self.uid].name()}</b>\n\n<b>💽 Size : {size}</b>'
+            msg = f'<b>⌈➳📂 Movie Name : {download_dict[self.uid].name()}</b>\n\n<b>💽 Size : {size}</b>'
             if os.path.isdir(f'{DOWNLOAD_DIR}/{self.uid}/{download_dict[self.uid].name()}'):
-                msg += '\n<b>📦 Type : Folder</b>'
-                msg += f'\n<b>🗂️ SubFolders : {folders}</b>'
-                msg += f'\n<b>🗃️ Files : {files}</b>'
+                msg += '\n<b>⌈➳📦 Type : Folder</b>'
+                msg += f'\n<b>⌈➳🗂️ SubFolders : {folders}</b>'
+                msg += f'\n<b>⌈➳🗃️ Files : {files}</b>'
             else:
-                msg += f'\n<b>📦 Type : {typ}</b>'
+                msg += f'\n<b>⌈➳📦 Type : {typ}</b>'
             buttons = button_build.ButtonMaker()
             if SHORTENER is not None and SHORTENER_API is not None:
                 link=json.loads(requests.get('http://cutt.ly/api/api.php?key={}&short={}'.format(ckey, link)).text)['url']
@@ -212,7 +212,7 @@ class MirrorListener(listeners.MirrorListeners):
              else:
                 uname = f'<a href="tg://user?id={self.message.from_user.id}">{self.message.from_user.first_name}</a>'
             if uname is not None:
-                msg += f'\n\n<b>🗣️ Mɪʀʀᴏʀᴇᴅ Bʏ : {uname}\n\n🎭 𝐎𝐖𝐍𝐄𝐑 : #𝗪𝗵𝗶𝘁𝗘_𝗗𝗲𝘃𝗶𝗟𝟬𝟵</b>'
+                msg += f'\n\n<b>⌈➳🗣️ Mɪʀʀᴏʀᴇᴅ Bʏ : {uname}\n\n🎭 𝐎𝐖𝐍𝐄𝐑 : #𝗪𝗵𝗶𝘁𝗘_𝗗𝗲𝘃𝗶𝗟𝟬𝟵</b>'
             try:
                 fs_utils.clean_download(download_dict[self.uid].path())
             except FileNotFoundError:
